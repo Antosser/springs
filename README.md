@@ -15,6 +15,8 @@ Every dot is connected to every other dot with a spring. Every spring wants to g
 - **T** - create a **100-sided regular polygon**
 - **Y** - create a **250-sided regular polygon**
 
+**Warning!** Do **NOT** spawn in two objects at the same place. This will cause a division by zero = **crash**
+
 ### Options
 - **D** - Toggle showing the **dots**. **On** by default
 - **F** - Toggle  **filling** the object. **Off** by default
@@ -26,3 +28,10 @@ Every dot is connected to every other dot with a spring. Every spring wants to g
 - **Arrow Down** - Create a **force down** for each object
 - **Arrow Left** - Create a **force left** for each object
 - **Arrow Right** - Create a **force right** for each object
+
+### GUI
+You can change the spring strength or timescale using the scalers on the page or using the url and reloading
+![image](https://user-images.githubusercontent.com/71790328/128499130-c2dab0a0-7e1f-4028-a4f8-7ce93b763787.png)
+
+### Start the simulation
+You can press **Space** to start the simulation
