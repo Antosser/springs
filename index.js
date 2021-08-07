@@ -125,10 +125,16 @@ document.onkeydown = e => {
 	}
 }
 
-c2.addEventListener("click", e => {
+c2.onclick = e => {
 		dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, false));
 		square(e.offsetX, e.offsetY);
-});
+}
+
+c2.oncontextmenu = e => {
+	dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, true));
+	square(e.offsetX, e.offsetY);
+	return false;
+}
 
 setInterval(() => {
 	window.history.replaceState("", "", "?" + encodeURIComponent($("input#strength")[0].value) + "&" + encodeURIComponent($("input#timescale")[0].value));
@@ -183,16 +189,18 @@ var go = () => {
 			}
 		}}
 		for (let i = 0; i < dots.length; i++) {
-			dots[i].my += .1 * timescale;
-			dots[i].x += dots[i].mx * timescale;
-			dots[i].y += dots[i].my * timescale;
-			dots[i].mx /= 1 + .001 * timescale;
-			dots[i].my /= 1 + .001 * timescale;
-			if (dots[i].y > 900) {
-				dots[i].y = 900;
-				dots[i].mx /= 1 + 9 * timescale;
-				if (dots[i].my > 0)
-					dots[i].my = 0;
+			if (!dots[i].fixed) {
+				dots[i].my += .1 * timescale;
+				dots[i].x += dots[i].mx * timescale;
+				dots[i].y += dots[i].my * timescale;
+				dots[i].mx /= 1 + .001 * timescale;
+				dots[i].my /= 1 + .001 * timescale;
+				if (dots[i].y > 900) {
+					dots[i].y = 900;
+					dots[i].mx /= 1 + 9 * timescale;
+					if (dots[i].my > 0)
+						dots[i].my = 0;
+				}
 			}
 		}
 
