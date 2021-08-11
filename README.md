@@ -1,4 +1,4 @@
-# Springs Physics
+# [Springs Physics](https://antosser.github.io/springs/?100&1)
 Springs is an  html web application to simulate physics objects.
 Every dot is connected to every other dot with a spring. Every spring wants to get to it's initial length.
 
