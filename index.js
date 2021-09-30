@@ -213,12 +213,11 @@ var go = () => {
 			for (let i = 0; i < dots.length; i++)
 				dots[i].x -= (sum - 500);
 			camx -= (sum - 500)
-			camx %= 100;
 		}
 
 		// Ground Points
 		for (i = 0; i < 15; i++) {
-			square(i*100 + camx - 250, 940)
+			square(i*100 + camx % 100 - 250, 940)
 		}
 	}, 10);
 }
