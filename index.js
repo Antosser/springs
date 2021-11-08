@@ -135,10 +135,11 @@
 		}
 	}
 
-	c2.onclick = e => {
-			dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, false));
-			square(e.offsetX, e.offsetY);
-	}
+	$("canvas").on("tap", e => {
+		console.log(e)
+		dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, false));
+		square(e.offsetX, e.offsetY);
+	});
 
 	c2.oncontextmenu = e => {
 		dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, true));
