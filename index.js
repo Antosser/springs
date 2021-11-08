@@ -4,7 +4,7 @@
 	c2.style.setProperty("--scale", window.innerHeight / 1000 > window.innerWidth / 1000 ? window.innerWidth / 1000 : window.innerHeight / 1000);
 
 	started = false;
-	follow = false;
+	follow = true;
 	drawpoly = false;
 	drawline = true;
 	drawdots = true;
@@ -43,6 +43,15 @@
 		$("input#strength")[0].value = parseInt(decodeURIComponent(location.search.substring(1)).split("&")[0]);
 		$("input#timescale")[0].value = parseFloat(decodeURIComponent(location.search.substring(1)).split("&")[1]);
 	}
+
+	$("#follow").change(() => {
+		follow = !follow;
+	});
+	$("[name=fillType]").change(() => {
+		drawpoly = !drawpoly;
+		drawline = !drawline;
+		drawdots = !drawdots;
+	});
 
 	document.onkeydown = e => {
 		console.log("Pressed: " + e.code + " | " + e.keyCode)
@@ -136,6 +145,8 @@
 		square(e.offsetX, e.offsetY);
 		return false;
 	}
+
+	
 
 	setInterval(() => {
 		window.history.replaceState("", "", "?" + encodeURIComponent($("input#strength")[0].value) + "&" + encodeURIComponent($("input#timescale")[0].value));
