@@ -135,7 +135,7 @@
 		}
 	}
 
-	$("canvas").on("tap", e => {
+	$("canvas").on("mousedown", e => {
 		console.log(e)
 		dots.push(new Dot(e.offsetX, e.offsetY, 0, 0, false));
 		square(e.offsetX, e.offsetY);
